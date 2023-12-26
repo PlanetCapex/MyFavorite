@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="JUnit run from UTA view" type="JUnit" factoryName="JUnit">
+    <module name="OnlineShop" />
+    <option name="PACKAGE_NAME" value="my.project.service.Impl" />
+    <option name="MAIN_CLASS_NAME" value="my.project.service.Impl.UserServiceImplTest" />
+    <option name="TEST_OBJECT" value="class" />
+    <RunnerSettings jtest.executionsettings.utaEnabled="true" jtest.executionsettings.coverageEnabled="false" jtest.executionsettings.coveragePaneActive="true" RunnerId="Jtest">
+      <module name="OnlineShop" />
+      <option name="PACKAGE_NAME" value="my.project.service.Impl" />
+      <option name="MAIN_CLASS_NAME" value="my.project.service.Impl.UserServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+    </RunnerSettings>
+    <method v="2">
+      <option name="MakeNoErrorCheck" enabled="true" />
+    </method>
+  </configuration>
+</component>

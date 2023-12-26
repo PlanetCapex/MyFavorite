@@ -1,0 +1,55 @@
+version: '2'
+services:
+  app:
+    image: 'docker-spring-boot-postgres:latest'
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/onlineshop
+      - SPRING_DATASOURCE_USERNAME=onlineshop
+      - SPRING_DATASOURCE_PASSWORD=qwertyuiop
+      - MAIL_ADMIN=javatestapp11@gmail.com
+      - SPRING_MAIL_USERNAME=nikiton.3232@mail.ru
+      - SPRING_MAIL_PASSWORD=tewnyFYuKZpkaMxwzx0x
+    ports:
+      - 8080:8080
+    volumes:
+      - upload: /static/uploads/
+
+  apistream:
+    build:
+      dockerfile: ./apistream/Dockerfile
+    container_name: apistream
+    volumes:
+      - ./apistream:/usr/src/app
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "0.0.0.0:8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_USER=onlineshop
+      - DB_PASSWORD=qwertyuiop
+      - DB_NAME=onlineshop
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+      - apistream
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=onlineshop
+      - POSTGRES_PASSWORD=qwertyuiop

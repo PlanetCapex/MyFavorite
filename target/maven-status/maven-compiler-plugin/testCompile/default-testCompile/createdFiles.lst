@@ -1,0 +1,8 @@
+my\project\controller\CartControllerTest.class
+my\project\controller\OrderControllerTest.class
+my\project\controller\UserControllerTest.class
+my\project\service\Impl\UserServiceImplTest.class
+my\project\controller\MainControllerTest.class
+my\project\service\Impl\OrderServiceImplTest.class
+my\project\controller\MenuControllerTest.class
+my\project\controller\RegistrationControllerTest.class
